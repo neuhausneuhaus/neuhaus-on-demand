@@ -5,16 +5,21 @@ dotenv.config();
 
 
 const isProd = process.env.NODE_ENV === 'production';
+let poolConfig;
+if (isProd){
+  poolConfig = {connectionString: process.env.HEROKU_DB_URL}
+} else {
+  poolConfig = {
+    user: process.env.DATABASE_USER,
+    host: 'localhost',
+    database: process.env.DATABASE,
+    password: process.env.DATABASE_PASSWORD,
+    port: 5432,
+    ssl:true
+  }
+};
 
-
-const pool = new Pool({
-  user: process.env.DATABASE_USER,
-  host: 'localhost',
-  database: process.env.DATABASE,
-  password: process.env.DATABASE_PASSWORD,
-  port: 5432,
-  ssl:true
-});
+const pool = new Pool(poolConfig);
 
 // pool.on('connect', async () => {
 //   console.log('pg db up and running, captain.');

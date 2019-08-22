@@ -7,8 +7,11 @@ const {pool} = require('../db/init');
 
 const meetingController = {
   getAllMeetings: (req, res, next) => {
+    console.log('getAllMeetings args req', req);
+    console.log('getAllMeetings args res', res);
     pool.query(`SELECT * FROM meeting`)
     .then((result) => {
+      console.log('getAllMeetings pool.query then result', result);
       res.meetings = result.rows;
       next();
       // pool.end(() => console.log('pool has ended'));

@@ -7,10 +7,12 @@ router.get('/', (req, res) => {
 
 
 router.get('/meetings/:email', meetingController.getMeetingsByApplicant, (req, res, next) => {
-  res.json(res.meetings)
+  res.json(res.meetings);
 });
 router.get('/meetings', meetingController.getAllMeetings, (req, res, next) => {
-  res.json(res.meetings)
+  console.log('post midware router args - req', req);
+  console.log('post midware router args - res', res);
+  res.json(res.meetings);
 });
 
 module.exports = router;

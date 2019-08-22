@@ -7,7 +7,8 @@ dotenv.config();
 const isProd = process.env.NODE_ENV === 'production';
 let poolConfig;
 if (isProd){
-  poolConfig = {connectionString: process.env.HEROKU_DB_URL}
+  console.log("Production DB Selected.");
+  poolConfig = {connectionString: process.env.DATABASE_URL}
 } else {
   poolConfig = {
     user: process.env.DATABASE_USER,

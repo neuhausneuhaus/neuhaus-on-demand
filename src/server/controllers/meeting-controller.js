@@ -15,6 +15,10 @@ const meetingController = {
       res.meetings = result.rows;
       next();
       // pool.end(() => console.log('pool has ended'));
+    }).catch((err) => {
+      console.log("ERROR POTATO");
+      console.log(err);
+      pool.end(() => console.log('pool has ended'));
     });
   },
 

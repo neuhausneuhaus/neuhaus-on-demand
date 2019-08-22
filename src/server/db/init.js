@@ -12,7 +12,8 @@ const pool = new Pool({
   host: 'localhost',
   database: process.env.DATABASE,
   password: process.env.DATABASE_PASSWORD,
-  port: 5432
+  port: 5432,
+  ssl:true
 });
 
 // pool.on('connect', async () => {

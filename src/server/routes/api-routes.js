@@ -10,8 +10,6 @@ router.get('/meetings/:email', meetingController.getMeetingsByApplicant, (req, r
   res.json(res.meetings);
 });
 router.get('/meetings', meetingController.getAllMeetings, (req, res, next) => {
-  console.log('post midware router args - req', req);
-  console.log('post midware router args - res', res);
   res.json(res.meetings);
 });
 
